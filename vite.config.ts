@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,15 +13,15 @@ export default defineConfig({
       targets: [
         {
           src: 'node_modules/@ricky0123/vad-web/dist/vad.worklet.bundle.min.js',
-          dest: '/'
+          dest: path.resolve(__dirname, 'dist/'),
         },
         {
           src: 'node_modules/@ricky0123/vad-web/dist/silero_vad.onnx',
-          dest: '/'
+          dest: path.resolve(__dirname, 'dist/'),
         },
         {
           src: 'node_modules/onnxruntime-web/dist/*.wasm',
-          dest: '/'
+          dest: path.resolve(__dirname, 'dist/'),
         }
       ]
     }),
